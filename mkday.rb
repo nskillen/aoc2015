@@ -4,7 +4,7 @@ day = lambda do |d|
 	<<~EOF
 		require_relative 'day'
 
-		class D#{d} < Day
+		class #{d.upcase} < Day
 
 			def part_one
 
@@ -24,5 +24,5 @@ d = d[1..-1] if d.start_with?("dd")
 FileUtils.touch("input/#{d}.txt")
 
 File.open("#{d}.rb", "w") do |f|
-	f.write day.call(ARGV[0])
+	f.write day.call(d)
 end
